@@ -11,6 +11,7 @@ export class SayHello extends Component {
     return (
       <div style={{ color: this.props.color, backgroundColor: "yellow" }}>
         Hello {this.props.name}
+        
       </div>
     );
   }
