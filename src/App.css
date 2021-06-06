@@ -1,7 +1,6 @@
-.app {
-  height: 100vh;
-  width: 100vw;
-  transition: background-color 1s ease-in;
+* {
+  height: 100%;
+  background-color: #94c9f7;
 }
 
 .app__header,
@@ -16,10 +15,53 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*  Search bar */
+.header{
+  background-color: #7492dd;
+  height: 90px;
+  margin-bottom: 50px;
+}
 
-/* Current weather */
+.inputWeather{
+  height: 30px;
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 30px;
+  background-color: #7492dd;
+  color: white;
+  padding-left: 20px;
+  border: 1px white;
+}
 
-div {
-  border: 5px solid red;
+.buttonWeather{
+  background-color: #5e67ca;
+  height: 45px;
+  width: 180px;
+  margin-top: 25px;
+  margin-left: 20px;
+  font-size: large;
+  font-weight: 300;
+}
+
+.body{
+text-align: center;
+}
+
+.imgLogo{
+  margin-top: 30px;
+  width: 450px;
+  height: 150px;
+}
+
+.HoursWeather{
+  margin-top: -300px;
+  margin-left: 230px;
+}
+
+.myPic{
+  height: 50px;
+  width: 50px;
+}
+
+.app{
+  padding-top: -500px;
 }
