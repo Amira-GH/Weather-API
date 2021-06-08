@@ -26,68 +26,89 @@ class App extends Component {
         </div>
 
         <div className="body">
-          <img src={logo} className="imgLogo"/>        
-          <p style={{color:"white", marginTop:"-20px", fontWeight:"bold"}}>overcast clouds</p>
-          <p style={{color:"black", marginTop:"-620px", fontWeight:"bold", marginLeft:"-100px"}}>Temperature <p style={{fontWeight:"normal", marginTop:"-20px", marginLeft:"250px"}}>10&deg; to 11&deg;C</p></p>
-          <p style={{color:"black ", marginTop:"-630px", fontWeight:"bold", marginLeft:"-150px",fontSize:"12px"}}>Humidity<p style={{fontWeight:"lighter", marginTop:"-14px", marginLeft:"115px", fontSize:"12px"}}>78%</p><p style={{color:"black ", marginTop:"-668px", fontWeight:"bold",fontSize:"12px" ,marginLeft:"230px"}}>Pressure <p style={{fontWeight:"lighter", marginTop:"-16px", marginLeft:"115px", fontSize:"12px"}}>1008.48</p></p></p>
+          <img src={logo} className="imglogo"></img>
+          <div className="grid-container">
+             <div className="grid-item1">overcast clouds </div><br></br>
+             <div className="grid-item2">Temperature</div>
+             <div className="grid-item3">10&deg; to 11&deg; C</div><br></br>
+             <div className="grid-item4">Humidity</div>
+             <div className="grid-item5">78% </div>
+             <div className="grid-item6">Pressure</div>
+             <div className="grid-item7">1008.48</div>
+          </div>
+        </div>
+        <div className="Content">
+        <div className="content">
+           <div style={{marginRight:"70%", marginTop:"3%"}}>
+            <p style={{color:"black"}}>03:00</p>
+            <div>
+              <img src={logo} className="image2"/>
+            </div>
+            <p style={{}}>8 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"-50px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>03:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={logo} style={{width:"100px",height:"100px"}}/>    
+        <div className="content1">
+           <div style={{marginRight:"50%", marginTop:"-14.5%"}}>
+            <p style={{color:"black"}}>06:00</p>
+            <div>
+              <img src={logo} className="image3"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>8 &deg;C</p>
+            <p style={{}}>9 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"110px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>06:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={logo} style={{width:"100px",height:"100px"}}/>    
+        <div className="content2">
+           <div style={{marginRight:"30%", marginTop:"-10%"}}>
+            <p style={{color:"black"}}>09:00</p>
+            <div>
+              <img src={image} className="image4"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>9 &deg;C</p>
+            <p style={{}}>14 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"270px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>09:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={image} style={{width:"100px",height:"100px"}}/>    
+        <div className="content3">
+           <div style={{marginRight:"10%", marginTop:"-10.5%"}}>
+            <p style={{color:"black"}}>12:00</p>
+            <div>
+              <img src={image} className="image5"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>14 &deg;C</p>
+            <p style={{}}>17 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"430px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>12:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={image} style={{width:"100px",height:"100px"}}/>    
+        <div className="content4">
+           <div style={{marginLeft:"10%", marginTop:"-10%"}}>
+            <p style={{color:"black"}}>15:00</p>
+            <div>
+              <img src={image} className="image6"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>17 &deg;C</p>
+            <p style={{}}>18 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"580px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>15:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={image} style={{width:"100px",height:"100px"}}/>    
+        <div className="content5">
+           <div style={{marginLeft:"30%", marginTop:"-10.25%"}}>
+            <p style={{color:"black"}}>18:00</p>
+            <div>
+              <img src={image} className="image7"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>18 &deg;C</p>
+            <p style={{}}>16 &deg;C</p>
+           </div>
         </div>
 
-        <div style={{marginLeft:"730px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>18:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={image} style={{width:"100px",height:"100px"}}/>    
+        <div className="content6">
+           <div style={{marginLeft:"50%", marginTop:"-9.5%"}}>
+            <p style={{color:"black"}}>06:00</p>
+            <div>
+              <img src={logo} className="image8"/>
             </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>16 &deg;C</p>
+            <p style={{}}>9 &deg;C</p>
+           </div>
         </div>
-
-        <div style={{marginLeft:"880px",marginTop:"-657px"}}>
-            <p style={{marginTop:"-220px",marginLeft:"220px"}}>21:00</p>
-            <div style={{marginTop:"-650px", marginLeft:"190px"}}>
-              <img src={logo} style={{width:"100px",height:"100px"}}/>    
-            </div>
-            <p style={{marginLeft:"220px", marginTop:"-550px"}}>13 &deg;C</p>
         </div>
-      </div>
+        </div>
     );
   }
 }
