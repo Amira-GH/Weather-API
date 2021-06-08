@@ -1,2 +1,26 @@
-div {
-}
+.header{
+    background-color: #759EDA;
+    height: 15%;
+    text-align: left;
+  }
+  .inputWeather{
+    height: 30px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 30px;
+    background-color: #759EDA;
+    color: white;
+    padding-left: 20px;
+    border: 1px white;
+  }
+  .buttonWeather{
+    background-color: #5979C7;
+    height: 45px;
+    width: 180px;
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: large;
+    font-weight: 300;
+    border: 0ch;
+  }
+  

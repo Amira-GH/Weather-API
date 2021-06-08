@@ -1,0 +1,49 @@
+body{
+    margin:0; 
+    padding:0;
+    overflow-x:hidden;
+    text-align: center;
+}
+.imglogo{
+    margin-top: 1%;
+    width: 15%;
+    height:8%
+  }
+  .grid-item1{
+    color: white;
+    font-weight: bold;
+  }
+  .grid-item2{
+    font-weight: bold;
+    color: #132756;
+    margin-right: 8%;
+  }
+  .grid-item3{
+    color: #132756;
+    margin-left: 10%;
+     margin-top: -1.5%; 
+  }
+  .grid-item4{
+    color: #132756;
+    font-weight: bold;
+    margin-right: 12%;
+  }
+  .grid-item5{
+    color: #132756;
+    margin-right: 3%;
+    margin-top: -1.5%;
+  }
+  .grid-item6{
+    color: #132756;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-top: -1.5%;
+  }
+  .grid-item7{
+    color: #132756;
+    margin-left: 20%;
+    margin-top: -1.5%;
+  }
+  .grid-container{
+    margin-bottom: 6%;
+  }
