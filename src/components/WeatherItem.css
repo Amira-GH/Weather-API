@@ -19,9 +19,9 @@ body{
     margin-right: 8%;
   }
   .grid-item3{
-    color: #132756;
+    color: #132858;
     margin-left: 10%;
-     margin-top: -1.5%; 
+    margin-top: -1.5%; 
   }
   .grid-item4{
     color: #132756;
@@ -46,4 +46,4 @@ body{
   }
   .grid-container{
     margin-bottom: 6%;
-  }
+ }
