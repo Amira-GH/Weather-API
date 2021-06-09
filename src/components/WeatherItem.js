@@ -4,11 +4,13 @@ import logo from '../img/weather-icons/mostlycloudy.svg';
 import "./WeatherItem.css";
 import "../fakeWeatherData.json";
 
+import Clouds from '../img/weather-icons/cloudy.svg'
+
 
 export default class WeatherItem extends Component {
   render() {
     return <div className="body">
-    <img src={this.props.src} className="imglogo"></img>
+    <img src={Clouds} className="imglogo"></img>
     <div className="grid-container">
        <div className="grid-item1"> {this.props.status}</div><br></br>
        <div className="grid-item2">Temperature</div>
@@ -21,6 +23,12 @@ export default class WeatherItem extends Component {
   </div>;
   }
 }
+
+
+
+
+
+
 export class SayHello extends Component {
   render() {
     return (

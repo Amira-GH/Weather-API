@@ -4,67 +4,124 @@ import WeatherItem from "./components/WeatherItem"
 import SayHi, { SayHello } from "./components/WeatherItem";
 import fakeWeatherData from "./fakeWeatherData.json"
 import logo from './img/weather-icons/mostlycloudy.svg';
-import image from './img/weather-icons/clear.svg';
-import partlycloudy from './img/weather-icons/partlycloudy.svg'
+import clear from './img/weather-icons/clear.svg';
+import partlycloudy from './img/weather-icons/partlycloudy.svg';
+import mostlycloudy from './img/weather-icons/mostlycloudy.svg'
 import rain from './img/weather-icons/rain.svg'
-import cloudy from './img/weather-icons/cloudy.svg'
+import Clouds from './img/weather-icons/cloudy.svg'
 import drizzle from './img/weather-icons/drizzle.svg'
 import fog from './img/weather-icons/fog.svg'
 import snow from './img/weather-icons/snow.svg'
 import storm from './img/weather-icons/storm.svg'
 import unknown from './img/weather-icons/unknown.svg'
-
-
 import "./App.css";
 import Hours from "./components/Hours";
 
-
 class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      name: "Amira"
+      city: "london",
+      weather:null,
+      pressure:"",
+      temp_min:"",
+      temp_max:"",
+      humidity:"",
+      description:"",
+      imageSrc:"",
+      time:"",
+      temp:"",
+      list: [],
+      today: {}
     };
   }
+
+  async componentDidMount() {
+    try{
+    const url = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&cnt=8&units=metric&appid=377f50d0d6c1009ec3998e0400c5cffb`;
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({
+      list: data.list,
+      today: {
+        description: data.list[1].weather[0].description,
+        temp: data.list[1].main.temp,
+        tempMax: data.list[1].main.temp_max,
+        tempMin: data.list[1].main.temp_min,
+        humidity: data.list[1].main.humidity,
+        pressure: data.list[1].main.pressure,
+        nbId: data.list[1].weather[0].id
+      }
+    });
+  }catch(err){
+    console.log(err);
+  }
+  }
+
+  handleClick = async () => {
+    this.setState({ city: "" });
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&cnt=8&units=metric&appid=377f50d0d6c1009ec3998e0400c5cffb`
+    );
+    const result = await response.json();
+    
+    this.setState({
+      list: result.list,
+      today: {
+        description: result.list[1].weather[0].description,
+        temp: result.list[1].main.temp,
+        tempMax: result.list[1].main.temp_max,
+        tempMin: result.list[1].main.temp_min,
+        humidity: result.list[1].main.humidity,
+        pressure: result.list[1].main.pressure,
+        nbId: result.list[1].weather[0].id
+      }
+    });
+
+    this.setState({ weather: result });
+    this.setState({temp_min:result.list[0].main.temp_min})   
+    this.setState({temp_max:result.list[0].main.temp_max}) 
+    this.setState({pressure:result.list[0].main.pressure})
+    this.setState({humidity:result.list[0].main.humidity})
+    this.setState({description:result.list[0].weather[0].description})
+    this.setState({imageSrc:result.list[0].weather[0].main})
+    this.setState({nbId: result.list[1].weather[0].id})
+  };
+
+  changeHandler = e => {
+    this.setState({ city: e.target.value });
+  };
+
+  backgroundPicker = nb => {
+    if (nb >= 300 && nb < 800) {
+      return "#9EBAD5";
+    } else {
+      return "#2490E1";
+    }
+  };
 
   render() {
     return (
       <div className="app">
-
-        <Search/>
-          <WeatherItem
-            status={fakeWeatherData.list[4].weather[0].description}
-            src={cloudy}
-            temp_min={fakeWeatherData.list[4].main.temp_min}
-            temp_max={fakeWeatherData.list[4].main.temp_max}
-            humidity={fakeWeatherData.list[4].main.humidity}
-            pressure={fakeWeatherData.list[4].main.pressure}
-          />
-        <Hours
-        status={fakeWeatherData.list[5].weather[0].description}
-            src3={rain}
-            temp={fakeWeatherData.list[5].main.temp}
-        status={fakeWeatherData.list[6].weather[0].description}
-            src4={rain}
-            temp={fakeWeatherData.list[6].main.temp}
-        status={fakeWeatherData.list[7].weather[0].description}
-            src5={rain}
-            temp={fakeWeatherData.list[7].main.temp}
-        status={fakeWeatherData.list[8].weather[0].description}
-            src6={rain}
-            temp={fakeWeatherData.list[8].main.temp}
-        status={fakeWeatherData.list[9].weather[0].description}
-            src7={rain}
-            temp={fakeWeatherData.list[9].main.temp}
-        status={fakeWeatherData.list[10].weather[0].description}
-            src8={rain}
-            temp={fakeWeatherData.list[10].main.temp}
-        status={fakeWeatherData.list[11].weather[0].description}
-            src9={rain}
-            temp={fakeWeatherData.list[11].main.temp}
+        <Search
+          click={this.handleClick}
+          change={this.changeHandler}
+          value={this.state.searchInput}
         />
-
+        <WeatherItem
+          status={this.state.description}
+            source={this.state.imageSrc}
+            temp_min={this.state.temp_min}
+            temp_max={this.state.temp_max}
+            humidity={this.state.humidity}
+          pressure={this.state.pressure}
+        />
+        <Hours
+          list={this.state.list}
+          icon={this.icon}
+          nbID={this.state.today.nbId}
+          backgroundPicker={this.backgroundPicker}
+        />
       </div>
     );
   }
