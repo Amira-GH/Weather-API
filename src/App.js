@@ -18,6 +18,7 @@ import "./App.css";
 import Hours from "./components/Hours";
 
 class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -41,6 +42,8 @@ class App extends Component {
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&cnt=8&units=metric&appid=377f50d0d6c1009ec3998e0400c5cffb`;
     const response = await fetch(url);
     const data = await response.json();
+
+  
     this.setState({
       list: data.list,
       today: {
@@ -85,7 +88,8 @@ class App extends Component {
     this.setState({humidity:result.list[0].main.humidity})
     this.setState({description:result.list[0].weather[0].description})
     this.setState({imageSrc:result.list[0].weather[0].main})
-    this.setState({nbId: result.list[1].weather[0].id})
+    this.setState({nbId: 890})
+    console.log("nbid",this.state.nbId)
   };
 
   changeHandler = e => {
@@ -100,22 +104,43 @@ class App extends Component {
     }
   };
 
+  icon = nb => {
+    if (nb < 300) {
+      return storm;
+    } else if (nb >= 300 && nb < 500) {
+      return drizzle;
+    } else if (nb >= 500 && nb < 600) {
+      return rain;
+    } else if (nb >= 600 && nb < 700) {
+      return snow;
+    } else if (nb >= 700 && nb < 800) {
+      return fog;
+    } else if (nb === 800) {
+      return clear;
+    } else if (nb === 801) {
+      return fog;
+    } else if (nb >= 801 && nb < 805) {
+      return mostlycloudy;
+    }
+  };
+
   render() {
     return (
       <div className="app">
+
         <Search
           click={this.handleClick}
           change={this.changeHandler}
           value={this.state.searchInput}
         />
-        <WeatherItem
-          status={this.state.description}
+          <WeatherItem
+            status={this.state.description}
             source={this.state.imageSrc}
             temp_min={this.state.temp_min}
             temp_max={this.state.temp_max}
             humidity={this.state.humidity}
-          pressure={this.state.pressure}
-        />
+            pressure={this.state.pressure}
+          />
         <Hours
           list={this.state.list}
           icon={this.icon}
